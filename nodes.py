@@ -596,10 +596,12 @@ class GenerateNAID_V4Advanced:
                         "display": "number",
                     },
                 ),
+                # ### MODIFIED SECTION START ###
                 "ucPreset": (
-                    ["Heavy", "Light", "Human Focus", "None"],
+                    ["Heavy", "Light", "Furry Focus", "Human Focus", "None"],
                     {"default": "Light"},
                 ),
+                # ### MODIFIED SECTION END ###
                 "sampler": (
                     [
                         "k_euler",
@@ -684,7 +686,7 @@ class GenerateNAID_V4Advanced:
     ):
         width, height = calculate_resolution(width * height, (width, height))
 
-        uc_preset_map = {"Heavy": 0, "Light": 1, "Human Focus": 2, "None": 3}
+        uc_preset_map = {"Heavy": 0, "Light": 1, "Furry Focus": 2, "Human Focus": 3, "None": 4}
         uc_preset_value = uc_preset_map.get(ucPreset, 1)
 
         char_captions_positive = []
@@ -1195,7 +1197,7 @@ NODE_CLASS_MAPPINGS = {
 }
 NODE_DISPLAY_NAME_MAPPINGS = {
     "GenerateNAID": "Generate ✒️🅝🅐🅘",
-    "GenerateNAID_V4Advanced": "Generate (V4 Advanced) ✒️🅝🅐🅘",
+    "GenerateNAID_V4Advanced": "Generate (V4.5 Advanced) ✒️🅝🅐🅘",
     "ModelOptionNAID": "ModelOption ✒️🅝🅐🅘",
     "Img2ImgOptionNAID": "Img2ImgOption ✒️🅝🅐🅘",
     "InpaintingOptionNAID": "InpaintingOption ✒️🅝🅐🅘",
