@@ -4,6 +4,7 @@ from pathlib import Path
 import folder_paths
 import zipfile
 import json
+import time
 
 from .utils import *
 
@@ -641,6 +642,17 @@ class GenerateNAID_V4Advanced:
                 "smea": (["none", "SMEA", "SMEA+DYN"], {"default": "none"}),
                 "decrisper": ("BOOLEAN", {"default": False}),
                 "variety": ("BOOLEAN", {"default": False}),
+                "wait_time": (  # ### NEW PARAMETER START ###
+                    "INT",
+                    {
+                        "default": 0,
+                        "min": 0,
+                        "max": 300,
+                        "step": 1,
+                        "display": "number",
+                        "tooltip": "在调用API开始生图前等待指定的秒数。",
+                    },
+                ),  # ### NEW PARAMETER END ###
                 "keep_alpha": (
                     "BOOLEAN",
                     {
@@ -681,6 +693,7 @@ class GenerateNAID_V4Advanced:
         decrisper,
         variety,
         keep_alpha,
+        wait_time,  # <-- New parameter added
         option=None,
         **kwargs,
     ):
@@ -820,6 +833,10 @@ class GenerateNAID_V4Advanced:
         payload_string = json.dumps(params, indent=4)
         image = blank_image()
         try:
+            if wait_time > 0:
+                print(f"ComfyUI_NAIDGenerator: Waiting for {wait_time} seconds before generation...")
+                time.sleep(wait_time)
+
             zipped_bytes = generate_image(
                 self.access_token, positive, model, action, params, timeout, retry
             )
