@@ -5,6 +5,7 @@ import folder_paths
 import zipfile
 import json
 import time
+import os
 
 from .utils import *
 
@@ -512,6 +513,8 @@ class GenerateNAID_V4Advanced:
     def __init__(self):
         self.access_token = get_access_token()
         self.output_dir = folder_paths.get_output_directory()
+        self.output_dir = os.path.join(self.output_dir, "NAI_autosaves")
+        os.makedirs(self.output_dir, exist_ok=True)
 
     @classmethod
     def INPUT_TYPES(s):
