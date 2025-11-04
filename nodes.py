@@ -236,6 +236,10 @@ class GenerateNAID:
     def __init__(self):
         self.access_token = get_access_token()
         self.output_dir = folder_paths.get_output_directory()
+        # ### MODIFIED SECTION START ###
+        self.output_dir = os.path.join(self.output_dir, "NAI_autosaves")
+        os.makedirs(self.output_dir, exist_ok=True)
+        # ### MODIFIED SECTION END ###
 
     @classmethod
     def INPUT_TYPES(s):
@@ -913,6 +917,10 @@ class RemoveBGAugment:
     def __init__(self):
         self.access_token = get_access_token()
         self.output_dir = folder_paths.get_output_directory()
+        # ### MODIFIED SECTION START ###
+        self.output_dir = os.path.join(self.output_dir, "NAI_autosaves")
+        os.makedirs(self.output_dir, exist_ok=True)
+        # ### MODIFIED SECTION END ###
 
     @classmethod
     def INPUT_TYPES(s):
@@ -946,6 +954,10 @@ class LineArtAugment:
     def __init__(self):
         self.access_token = get_access_token()
         self.output_dir = folder_paths.get_output_directory()
+        # ### MODIFIED SECTION START ###
+        self.output_dir = os.path.join(self.output_dir, "NAI_autosaves")
+        os.makedirs(self.output_dir, exist_ok=True)
+        # ### MODIFIED SECTION END ###
 
     @classmethod
     def INPUT_TYPES(s):
@@ -979,6 +991,10 @@ class SketchAugment:
     def __init__(self):
         self.access_token = get_access_token()
         self.output_dir = folder_paths.get_output_directory()
+        # ### MODIFIED SECTION START ###
+        self.output_dir = os.path.join(self.output_dir, "NAI_autosaves")
+        os.makedirs(self.output_dir, exist_ok=True)
+        # ### MODIFIED SECTION END ###
 
     @classmethod
     def INPUT_TYPES(s):
@@ -1012,6 +1028,10 @@ class ColorizeAugment:
     def __init__(self):
         self.access_token = get_access_token()
         self.output_dir = folder_paths.get_output_directory()
+        # ### MODIFIED SECTION START ###
+        self.output_dir = os.path.join(self.output_dir, "NAI_autosaves")
+        os.makedirs(self.output_dir, exist_ok=True)
+        # ### MODIFIED SECTION END ###
 
     @classmethod
     def INPUT_TYPES(s):
@@ -1054,6 +1074,10 @@ class EmotionAugment:
     def __init__(self):
         self.access_token = get_access_token()
         self.output_dir = folder_paths.get_output_directory()
+        # ### MODIFIED SECTION START ###
+        self.output_dir = os.path.join(self.output_dir, "NAI_autosaves")
+        os.makedirs(self.output_dir, exist_ok=True)
+        # ### MODIFIED SECTION END ###
 
     strength_list = [
         "normal",
@@ -1133,6 +1157,10 @@ class DeclutterAugment:
     def __init__(self):
         self.access_token = get_access_token()
         self.output_dir = folder_paths.get_output_directory()
+        # ### MODIFIED SECTION START ###
+        self.output_dir = os.path.join(self.output_dir, "NAI_autosaves")
+        os.makedirs(self.output_dir, exist_ok=True)
+        # ### MODIFIED SECTION END ###
 
     @classmethod
     def INPUT_TYPES(s):
@@ -1217,7 +1245,7 @@ NODE_CLASS_MAPPINGS = {
 }
 NODE_DISPLAY_NAME_MAPPINGS = {
     "GenerateNAID": "Generate ✒️🅝🅐🅘",
-    "GenerateNAID_V4Advanced": "Generate (V4.5 Advanced) ✒️🅝🅐🅘",
+    "GenerateNAID_V4Advanced": "Generate (V4.5 Advanced) ✒️f🅝🅐🅘",
     "ModelOptionNAID": "ModelOption ✒️🅝🅐🅘",
     "Img2ImgOptionNAID": "Img2ImgOption ✒️🅝🅐🅘",
     "InpaintingOptionNAID": "InpaintingOption ✒️🅝🅐🅘",

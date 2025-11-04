@@ -59,7 +59,7 @@ def generate_image(access_token, prompt, model, action, parameters, timeout=None
 
     request = requests
     if retry is not None and retry > 1:
-        retries = Retry(total=retry, backoff_factor=6, status_forcelist=[429, 500, 502, 503, 504], allowed_methods=["POST"])
+        retries = Retry(total=retry, backoff_factor=7, status_forcelist=[429, 500, 502, 503, 504], allowed_methods=["POST"])
         session = requests.Session()
         session.mount("https://", HTTPAdapter(max_retries=retries))
         request = session
@@ -75,7 +75,7 @@ def augment_image(access_token, req_type, width, height, image, options={}, time
 
     request = requests
     if retry is not None and retry > 1:
-        retries = Retry(total=retry, backoff_factor=6, status_forcelist=[429, 500, 502, 503, 504], allowed_methods=["POST"])
+        retries = Retry(total=retry, backoff_factor=7, status_forcelist=[429, 500, 502, 503, 504], allowed_methods=["POST"])
         session = requests.Session()
         session.mount("https://", HTTPAdapter(max_retries=retries))
         request = session
